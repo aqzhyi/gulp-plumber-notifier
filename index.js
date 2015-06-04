@@ -17,13 +17,13 @@ function errorHandler(error) {
   var time = '[' + colors.grey(dateformat(new Date(), 'HH:MM:ss')) + ']';
   process.stdout.write(time + ' ');
 
-  var fullMessage = `
-    Found error in plugins **${error.plugin}**:
-    ${error.message}
-  `;
+  var fullMessage =
+    'Error in plugins **' + error.plugin + '**:'
+    + error.message
+  ;
 
   notifier.notify({
-    title: `Found error in plugin ${error.plugin}`,
+    title: 'Found error in plugin ' + error.plugin,
     message: error.message,
   });
 
