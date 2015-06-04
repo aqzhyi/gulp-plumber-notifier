@@ -6,6 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "gulpplugin",
+    "notify",
+    "growl",
+    "notification",
+    "toaster"
+  ],
   "author": "Pleasurazy <pleasurazy@gmail.com>",
   "license": "MIT",
   "dependencies": {
