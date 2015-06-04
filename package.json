@@ -1,0 +1,17 @@
+{
+  "name": "gulp-plumber-notifier",
+  "version": "0.0.1",
+  "description": "plumber then notify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pleasurazy <pleasurazy@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.0",
+    "dateformat": "^1.0.11",
+    "gulp-plumber": "^1.0.1",
+    "node-notifier": "^4.2.1"
+  }
+}
