@@ -9,26 +9,30 @@ module.exports = index['default'] = index.index = index; // eslint-disable-line 
 
 /////
 function index() {
-  return plumber({ errorHandler: errorHandler });
+  return plumber({
+    errorHandler: errorHandler
+  });
 }
 
 function errorHandler(error) {
+
+  var lineNumber = (error.lineNumber) ? 'LINE ' + error.lineNumber + ' -- ' : '';
 
   var time = '[' + colors.grey(dateformat(new Date(), 'HH:MM:ss')) + ']';
   process.stdout.write(time + ' ');
 
   var fullMessage =
-    'Error in plugins **' + error.plugin + '**:'
-    + error.message
-  ;
+    'Error in plugins **' + error.plugin + '**:' + error.message;
 
   notifier.notify({
-    title: 'Found error in plugin ' + error.plugin,
+    title: 'Task Failed [' + error.plugin + ']',
+    line: lineNumber + 'See console.',
     message: error.message,
   });
 
   fullMessage = colors.bgRed.white(fullMessage);
 
   console.log(fullMessage);
-  return this;
+  // Prevent the 'watch' task from stopping
+  this.emit('end');
 }
