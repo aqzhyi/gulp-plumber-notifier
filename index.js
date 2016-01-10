@@ -9,30 +9,30 @@ module.exports = index['default'] = index.index = index; // eslint-disable-line 
 
 /////
 function index() {
-    return plumber({
-        errorHandler: errorHandler
-    });
+  return plumber({
+    errorHandler: errorHandler
+  });
 }
 
 function errorHandler(error) {
 
-    var lineNumber = (error.lineNumber) ? 'LINE ' + error.lineNumber + ' -- ' : '';
+  var lineNumber = (error.lineNumber) ? 'LINE ' + error.lineNumber + ' -- ' : '';
 
-    var time = '[' + colors.grey(dateformat(new Date(), 'HH:MM:ss')) + ']';
-    process.stdout.write(time + ' ');
+  var time = '[' + colors.grey(dateformat(new Date(), 'HH:MM:ss')) + ']';
+  process.stdout.write(time + ' ');
 
-    var fullMessage =
-        'Error in plugins **' + error.plugin + '**:' + error.message;
+  var fullMessage =
+    'Error in plugins **' + error.plugin + '**:' + error.message;
 
-    notifier.notify({
-        title: 'Task Failed [' + error.plugin + ']',
-        message: lineNumber + 'See console.',
-        message: error.message,
-    });
+  notifier.notify({
+    title: 'Task Failed [' + error.plugin + ']',
+    line: lineNumber + 'See console.',
+    message: error.message,
+  });
 
-    fullMessage = colors.bgRed.white(fullMessage);
+  fullMessage = colors.bgRed.white(fullMessage);
 
-    console.log(fullMessage);
-    // Prevent the 'watch' task from stopping
-    this.emit('end');
+  console.log(fullMessage);
+  // Prevent the 'watch' task from stopping
+  this.emit('end');
 }
