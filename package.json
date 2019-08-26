@@ -1,6 +1,6 @@
 {
   "name": "gulp-plumber-notifier",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "plumber then notify",
   "main": "index.js",
   "scripts": {
