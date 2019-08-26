@@ -26,7 +26,6 @@ function errorHandler(error) {
 
   notifier.notify({
     title: 'Task Failed [' + error.plugin + ']',
-    line: lineNumber + 'See console.',
     message: error.message,
   });
 
